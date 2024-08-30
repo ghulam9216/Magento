@@ -4,7 +4,58 @@ In Magento 2.4.7, when working with nested WYSIWYG editors, any content containi
 # Solution
 To resolve this issue, replace the existing **tinymce5Adapter.js** file located at:
 
+
+# Which Changes need in code
+
+**orignal function**
+        toggle: function () {
+            var content;
+
+            if (!tinyMCE.get(this.getId())) {
+                this.turnOn();
+
+                return true;
+            }
+
+            content = this.get(this.getId()) ? this.get(this.getId()).getContent() : this.getTextArea().val();
+
+            this.turnOff();
+
+            if (content.match(/{{.+?}}/g)) {
+                this.getTextArea().val(content.replace(/&quot;/g, '"'));
+            }
+
+            return false;
+        }
+
+  **Replace by Below Function**
+
+          toggle: function () {
+            var content;
+
+            if (!tinyMCE.get(this.getId())) {
+                this.turnOn();
+
+                return true;
+            }
+
+            content = this.get(this.getId()) ? this.get(this.getId()).getContent() : this.getTextArea().val();
+
+            this.turnOff();
+
+            if (content.match(/{{.+?}}/g)) {
+                this.getTextArea().val(content.replace(/&quot;/g, 'quot;'));
+            }
+
+            return false;
+        }
+
+
+**Blow vendor file replace in magento lib**
+vendor/magento/magento2-base/lib/web/mage/adminhtml/wysiwyg/tiny_mce/tinymce5Adapter.js
+->
 lib/web/mage/adminhtml/wysiwyg/tiny_mce/tinymce5Adapter.js
+
 
 Deploy static content (if necessary):
 php bin/magento setup:static-content:deploy -f
