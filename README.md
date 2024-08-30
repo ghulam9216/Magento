@@ -44,7 +44,7 @@ To resolve this issue, replace the existing **tinymce5Adapter.js** file located 
             this.turnOff();
 
             if (content.match(/{{.+?}}/g)) {
-                this.getTextArea().val(content.replace(/&quot;/g, 'quot;'));
+                this.getTextArea().val(content.replace(/&quot;/g, '&quot;'));
             }
 
             return false;
