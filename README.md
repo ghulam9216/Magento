@@ -52,18 +52,20 @@ To resolve this issue, replace the existing **tinymce5Adapter.js** file located 
 
 
 **Blow vendor file replace in magento lib**
+
 vendor/magento/magento2-base/lib/web/mage/adminhtml/wysiwyg/tiny_mce/tinymce5Adapter.js
 ->
 lib/web/mage/adminhtml/wysiwyg/tiny_mce/tinymce5Adapter.js
 
 
 Deploy static content (if necessary):
+php bin/magento setup:upgrade
 php bin/magento setup:static-content:deploy -f
 php bin/magento cache:clean
 php bin/magento cache:flush
 
 # Compatibility
-This fix is specifically for Magento 2.4.7. It may not be applicable to other versions of Magento without further testing.
+This fix is specifically for Magento 2.4.6. It may not be applicable to other versions of Magento without further testing.
 
 # Contributing
 If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
