@@ -1,5 +1,5 @@
 # Problem
-In Magento 2.4.7, when working with nested WYSIWYG editors, any content containing double quotes (") may lead to unexpected behavior. This is especially problematic when toggling between "Show" and "Hide" modes within the editor. The issue is traced back to the tinymce5Adapter.js file, which is responsible for handling the TinyMCE editor in Magento's admin panel.
+In Magento 2.4.6, when working with nested WYSIWYG editors, any content containing double quotes (") may lead to unexpected behavior. This is especially problematic when toggling between "Show" and "Hide" modes within the editor. The issue is traced back to the tinymce5Adapter.js file, which is responsible for handling the TinyMCE editor in Magento's admin panel.
 
 # Solution
 To resolve this issue, replace the existing **tinymce5Adapter.js** file located at:
